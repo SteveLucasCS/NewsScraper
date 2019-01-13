@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-dark">
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light px-5">
     <a class="navbar-brand" href="/">News Feed</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +23,8 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-md-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Articles by Keyword" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-      </form>
-
-      <form class="form-inline my-2 mx-5 my-md-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Comments by User" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="button">Search</button>
+        <input class="form-control mr-sm-2" type="search" id="titleSearchInput" placeholder="Articles by Keyword" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" id="titleSearchBtn" type="submit">Search</button>
       </form>
     </div>
   </nav>

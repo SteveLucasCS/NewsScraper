@@ -96,7 +96,7 @@ app.post('/articles/:id', function (req, res) {
     .then(function (dbComment) {
       return db.Article.findOneAndUpdate(
         { _id: req.params.id },
-        { $push: {comments: dbComment._id} },
+        { $push: { comments: dbComment._id } },
         { new: true }
       )
     })
@@ -108,7 +108,6 @@ app.post('/articles/:id', function (req, res) {
     })
 })
 
-
 // Route for grabbing a specific Article by id, populate it with it's comments
 app.get('/articles/:id', function (req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
@@ -117,12 +116,23 @@ app.get('/articles/:id', function (req, res) {
     .populate('comments')
     .then(function (dbArticle) {
       // If we were able to successfully find an Article with the given id, send it back to the client
-      
+
       res.json(dbArticle)
     })
     .catch(function (err) {
       // If an error occurred, send it to the client
       res.json(err)
+    })
+})
+
+app.get('/search/:keyword', function (req, res) {
+  db.Article.find({ 'title': { $regex: req.params.keyword, $options: 'i'} })
+    .then(function (dbArticle) {
+      console.log(dbArticle)
+      res.render('search', { data: dbArticle })
+    })
+    .catch(function (err) {
+      console.log(err)
     })
 })
 

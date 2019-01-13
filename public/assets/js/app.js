@@ -68,3 +68,17 @@ $('.showComments').on('click', function (event) {
     showComments(index, res.comments)
   })
 })
+
+$('#titleSearchBtn').on('click', function (event) {
+  var keyword = $('#titleSearchInput').val().trim()
+  if (!keyword) {
+    $('#titleSearchInput').attr('placeholder', 'Enter a Word')
+  } else {
+    $.ajax({
+      method: 'GET',
+      url: '/search/' + keyword
+    }).then(function (res) {
+      window.location.href = '/search/' + keyword
+    })
+  }
+})
