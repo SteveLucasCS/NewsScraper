@@ -34,7 +34,7 @@ app.set('view engine', 'handlebars')
 // Connect to the Mongo DB
 // If deployed, use the deployed database. Otherwise use the local database
 var MONGODB_URI =
-  process.env.MONGODB_URI || 'mongodb://localhost/NewsScraper_db'
+  process.env.MONGODB_URI || 'mongodb://heroku_40wpcs79:1n5n1h1mj9f8mir0fnksoptajt@ds255794.mlab.com:55794/heroku_40wpcs79'
 
 mongoose.connect(
   MONGODB_URI,
